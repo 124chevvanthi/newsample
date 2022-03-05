@@ -1,0 +1,60 @@
+package org.test;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+public class Hotel {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\user\\Desktop\\seleniuma\\driver\\chromedriver.exe");
+		WebDriver  driver=new ChromeDriver();
+		driver.get("");
+		driver.manage().window().maximize();
+		WebElement urname = driver.findElement(By.xpath("//input[@name='username']"));
+		urname.sendKeys("naveen53");
+		WebElement password = driver.findElement(By.xpath("//input[@name='password']"));
+		password.sendKeys("C1IZAU",Keys.ENTER);
+		WebElement location = driver.findElement(By.xpath("//select[@name='location']"));
+		Select select = new Select(location);
+		select.selectByValue("Sydney");
+		WebElement hotel = driver.findElement(By.xpath("//select[@name='hotels']"));
+		Select Select1 =new Select(hotel);
+		Select1.selectByValue("Hotel Creek");
+		WebElement roomtype = driver.findElement(By.xpath("//select[@name='room_type']"));
+		Select Select2  = new Select(roomtype);
+		Select2.selectByValue("Standard");
+		WebElement search = driver.findElement(By.xpath("(//inhttps://adactinhotelapp.com/put[@class='reg_button'])[1]"));
+		search.click();
+		WebElement icon = driver.findElement(By.xpath("//input[@id='radiobutton_0']"));
+		icon.click();
+		WebElement con = driver.findElement(By.xpath("//input[@id='continue']"));
+		con.click();
+		WebElement name = driver.findElement(By.xpath("//input[@id='first_name']"));
+		name.sendKeys("chevvanthi");
+		WebElement lastname = driver.findElement(By.xpath("//input[@id='last_name']"));
+		lastname.sendKeys("A");
+		WebElement add = driver.findElement(By.xpath("//textarea[@id='address']"));
+		add.sendKeys("chennai");
+		WebElement credit = driver.findElement(By.xpath("//input[@id='cc_num']"));
+		credit.sendKeys("126535686976751875");
+		WebElement type = driver.findElement(By.xpath("//select[@id='cc_type']"));
+		Select select3 = new Select(type);
+		select3.selectByValue("AMEX");
+		WebElement month = driver.findElement(By.xpath("//select[@id='cc_exp_month']"));
+		Select select4=new Select(month);
+		select4.selectByValue("1");
+		WebElement year = driver.findElement(By.xpath("//select[@id='cc_exp_year']"));
+		Select select5=new Select(year);
+		select5.selectByValue("2022");
+		WebElement cvv = driver.findElement(By.xpath("//input[@id='cc_cvv']"));
+		cvv.sendKeys("123");
+		WebElement book = driver.findElement(By.xpath("//input[@id='book_now']"));
+		book.click();
+		Thread.sleep(7000);
+		WebElement orderno = driver.findElement(By.xpath("//input[@id='order_no']"));
+		String data = orderno.getAttribute("value");
+		System.out.println(data);
+	}
+}
